@@ -1,6 +1,6 @@
 .card-group
         {
-            height: 450px;
+            height: 420px;
             width: 1080px;
             border-bottom: 1px dotted black;
             display: flex;/*類似包在盒子裡*/
@@ -10,7 +10,7 @@
         .card
         {
             width: 160px;
-            height: 425px;
+            height: 400px;
             margin: 4px;
             padding: 6px;/*內縮*/
 
@@ -34,16 +34,23 @@
         {
             background-color: #e0e0e0;
             height: 22px;
-            text-align: right;
+            text-align:right;
         }
-        
+        .card .up
+        {
+            height: 65px;
+        }
+        .card .gflr
+        {
+            
+        }
         p span
         {
             font-size: 12px;
         }
         .price 
         {
-            width: 172px;
+            width: 170px;
             height: 76px;
             font-size: 22px;
             color: red;
@@ -51,6 +58,10 @@
         .price span:last-child
         {
             color: black;
+        }
+        h3
+        {
+            margin: 0px;
         }
         h3 span
         {
