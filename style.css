@@ -1,0 +1,79 @@
+.card-group
+        {
+            height: 450px;
+            width: 1080px;
+            border-bottom: 1px dotted black;
+            display: flex;/*類似包在盒子裡*/
+            flex-wrap: wrap;/*多行顯示*/
+            margin: auto; /*水平置中*/
+        }
+        .card
+        {
+            width: 160px;
+            height: 425px;
+            margin: 4px;
+            padding: 6px;/*內縮*/
+
+        }
+        .card:hover
+        {
+            background-color: #f5f2ab;
+        }
+        .card img
+        {
+
+            width: 100%;
+        }
+        h3
+        {
+            width: 172px;
+            height: 96px;
+            color: #030303ad;
+        }
+        .Gfloor
+        {
+            background-color: #e0e0e0;
+            height: 22px;
+            text-align: right;
+        }
+        
+        p span
+        {
+            font-size: 12px;
+        }
+        .price 
+        {
+            width: 172px;
+            height: 76px;
+            font-size: 22px;
+            color: red;
+        }
+        .price span:last-child
+        {
+            color: black;
+        }
+        h3 span
+        {
+            color: red;
+            font-size: 14px;
+        }
+        .price .ggg
+        {
+            color: #aaa;
+        }
+        .price .star
+        {
+            color: gold;font-size: 16px;
+        }
+        p .quicky
+        {
+            background-color: rgb(255, 0, 0);
+            color: white;
+        }
+        p .ccc
+        {
+            font-size: 11px;
+            background: #f54b9d;
+            color: white;
+        }
+    
