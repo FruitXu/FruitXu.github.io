@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    filter: opacity(.5);
+    /* 變透明(透明度0~1(0%~100%)) */
+    transition: .5s;
+    /* 變化時間 : */
+}
+img{
+    border-radius: 8px;
+    object-fit: cover;
+    /* 保持原比例只顯示方塊區域 */
+    margin-bottom: 10px;
+}
+.page:nth-child(even) .card-group{
+    flex-direction: row-reverse;
+}
+.latest{
+    width: 1200px;
+    margin: 60px auto;
+    border-top: 2px solid;
+}
+.latest h2{
+    margin: 12px;
+}
+.card{
+    width: 1200px;
+    margin: auto;
+    border-top: 1px solid gainsboro;
+    display:flex;
+    align-items: center;
+}
+.card a{
+    align-items: center;
+    font-size: 12px;
+}
+.card a img{
+    margin: auto;
+    width: 12px;
+}
+.card p{
+    margin-left: 1em;
+    flex-grow: 1;
+}
+.card-group{
+    width: 1200px;
+    display: flex;
+    margin: auto;
+}
+.card-group img{
+    width: 100%;
+}
+.card-L{
+    width: 580px;
+    margin: 10px;
+}
+.card-L h3{
+    margin-right: 5px;
+}
+.card-L span{
+    font-size: 14px;
+}
+.card-L a span img{
+    width: 12px;
+    margin: auto;
+}
+.text {
+    display: flex;
+}
+.text h3{
+    font-size: 24px;
+    width: 300px;
+}
+.text p{
+    width: 300px;
+    flex-grow: 1;
+}
+.text p span{
+    display: inline-block;
+}
+.card-R{
+    display: flex;
+    flex-wrap: wrap;
+    width: 580px;
+    margin: 10px;
+}
+.card-item{
+    width: 260px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.card-item span{
+    display: flex;
+    font-size: 12px;
+    height: 20px;
+    align-items: center;
+}
+.card-item span img{
+    width: 12px;
+}
+.card-item span:nth-child(1){
+    /* background-color: aqua; */
+}
+.card-item span+img{
+    height: 173px;
+}
+.card-item p{
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight:bold;
+    /* 粗體字 */
+}
