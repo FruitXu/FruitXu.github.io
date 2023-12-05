@@ -107,6 +107,7 @@ img{
 }
 .card-item span:nth-child(1){
     /* background-color: aqua; */
+    display: flex;
 }
 .card-item span+img{
     height: 173px;
