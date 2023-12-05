@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.card{
+    width: 960px;
+    margin: 30px auto;
+    /* border: 1px solid black; */
+    position: relative;
+}
+.gary{
+    content: '';
+    background-color: #eeeeee;
+    width: 400px;
+    height: 300px;
+    margin-top: 80px;
+    position: relative;
+    left: 560px;
+}
+.card:nth-child(even) .gary{
+    width: 450px;
+    height: 400px;
+    top:40px;
+    left: 390px;
+}
+.car{
+    position: absolute;
+    top:120px;
+    right: 80px;
+}
+.card-link img{
+    width: 100%;
+}
+.arrow{
+    position: absolute;
+    right: -10px;
+    top:50%;
+}
+.card:nth-child(even) .arrow{
+    left: -10px;
+
+}
+.point{
+    width: 400px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top:20px;
+}
+.card:nth-child(even) .point{
+    top:60px;
+    right: 0;
+}
+.card:nth-child(even) .point .speclie{
+    flex-direction: row-reverse;
+}
+.speclie{
+    background-color: red;
+    color: white;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+}
+.speclie .num{
+    display: block;
+    font-size: 90px;
+    height: 100px;
+    transform: rotate(90deg);
+}
+.text{
+    padding: 20px;
+}
+.text h2{
+    font-size: 32px;
+}
+.text p{
+    font-size: 20px;
+}
+.because{
+    background-color: #eeeeee;
+    width: 600px;
+    margin-top: 220px;
+    margin-left: 40px;
+    position: relative;
+    padding: 10px;
+}
+.card:nth-child(even) .because{
+    margin-top: 150px;
+    left:300px
+}
+.because h2{
+    color: red;
+    margin: 10px;
+}
+.because h2::after{
+    content: '';
+    display: inline-block;
+    border-top: 1px solid red;
+    border-right: 300px solid #0000;
+    border-bottom: 10px solid #0000;
+    border-left: 10px solid #0000;
+}
+.because p{
+    margin: 5px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+}
+.because span{
+    color: gray;
+    display: inline-block;
+    padding-left: 20px;
+}
+.because span::before{
+    content: '■';
+    color: #fa0;
+    /* display: block; */
+    margin-right: .5em;
+}
