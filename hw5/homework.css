@@ -1,0 +1,380 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.start{
+    width: 1200px;
+    margin: 100px auto;
+}
+a{
+    text-decoration:none;
+    color: black;
+}
+.bookmark{
+    display: flex;
+    font-size: 20px;
+    background-color: white;
+    position: fixed;
+    margin: 0px auto;
+    padding: 10px 0;
+    top: 0;
+    width: 100%;
+}
+.bookitem{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    font-size: 20px;
+    background-color: white;
+}
+.bookmarkimg{
+    flex-grow: 1;
+    margin-right: auto;
+}
+.mark{
+    justify-content: end;
+    display: flex;
+    align-items: center;
+}
+.mark a{
+    margin: 10px;
+    display: inline-block;
+    color: gray;
+}
+.mark a:hover{
+    border-bottom: 1px solid gray;
+}
+.subscribe{
+    display: flex;
+    align-items: center;
+}
+.subscribe a{
+    justify-content: end;
+    border: 1px solid gray;
+    margin-left: 50px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.subscribe a:hover{
+    background-color: #1fde82;
+    color: white;
+    border: 1px solid #eeee;
+    transition:.3s;
+}
+.ability{
+    display: flex;
+    justify-content: space-between;
+}
+.picture{
+    width: 50%;
+}
+.picture img{
+    width: 100%;
+}
+.text h2{
+    font-size: 60px;
+    width: 500px;
+    margin-top: 80px;
+}
+.text p{
+    width: 500px;
+    font-size: 20px;
+    margin-top: 30px;
+}
+.learn{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.learn a:first-child{
+    background-color: #1fde82;
+    border: 1px solid #eeee;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+.learn a:first-child:hover{
+    background-color: gray;
+    transition:.3s;
+}
+.ability:nth-child(3){
+    flex-direction: row-reverse;
+}
+.ability:nth-child(3) .learn a:nth-child(2){
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.ability:nth-child(3) .learn a:nth-child(2):hover{
+    background-color: #1fde82;
+    color: white;
+    border: 1px solid #eeee;
+    transition:.3s;
+}
+.creative h2:first-child{
+    width: 500px;
+    font-size: 40px;
+}
+.creative-card{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    width: 300px;
+    padding: 40px;
+    margin: 10px;
+}
+.card img{
+    margin: 20px;
+}
+.card h2{
+    margin: 20px;
+}
+.card p{
+    margin: 20px;
+}
+.card a{
+    margin: 20px;
+}
+.card a:hover{
+    color:#1fde82;
+    transition: .3s;
+}
+.ability:nth-child(5) .learn a:last-child{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.ability:nth-child(5) .learn a:last-child:hover{
+    background-color: #1fde82;
+    color: white;
+    border: 1px solid #eeee;
+    transition:.3s;
+}
+.blue{
+    background-color: #2570ff;
+    width: 100%;
+    padding: 40px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.why{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.why-card{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.why-card-item{
+    width: 260px;
+    background-color: #3f81ff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+.why-card-item h2{
+    font-size: 50px;
+    padding: 10px;
+    margin: 10px;
+}
+.why-card-item p{
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.why-text{
+    width: 600px;
+    padding: 60px;
+}
+.why-text h2{
+    margin-bottom: 30px;
+    width: 400px;
+    font-size: 50px;
+}
+.why-text p{
+    margin-bottom: 60px;
+    width: 400px;
+    font-size: 18px;
+}
+.why-text a{
+    border: 1px solid #eeee;
+    border-radius: 5px;
+    color: white;
+    align-items: center;
+    padding: 10px;
+}
+.why-text a:hover{
+    background-color: #1fde82;
+    border: 1px solid #3f81ff;
+    transition: .3s;
+}
+.steps{
+    width: 1200px;
+    margin: 60px auto;
+}
+.steps h2{
+    font-size: 60px;
+}
+.process{
+    display: flex;
+    margin-top: 60px;
+}
+.proimg{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.process img:nth-child(2){
+    margin-left: 60px;
+}
+.portext{
+    display: flex;
+}
+.portext img{
+    width: 80px;
+    margin-left: 80px;
+}
+.process-text{
+    width: 400px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.process-text h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.steps .process:nth-child(odd){
+    flex-direction: row-reverse;
+}
+.teams{
+    width: 1200px;
+    margin: 60px auto;
+}
+.teams-group-text{
+    display: flex;
+    align-items: center;
+}
+.teams-group-text h2{
+    font-size: 60px;
+    width: 600px;
+}
+.teams-group-text a{
+    background-color: #1fde82;
+    color: white;
+    padding: 10px;
+    border: 1px solid #eeee;
+    border-radius: 5px;
+    margin-left: auto;
+}
+.teams-group-text a:hover{
+    background-color: gray;
+    transition:.3s;
+}
+.teams-card{
+    display: flex;
+}
+.teams-card img{
+    width: 100%;
+    border-radius: 10px;
+}
+.teams-item{
+    width: 400px;
+    margin: 10px;
+}
+.question{
+    display: flex;
+    width: 1200px;
+    margin: auto;
+}
+.question-field{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+.question-field h2{
+    padding: 20px;
+    font-size: 50px;
+}
+.question-field input{
+    margin: 20px;
+    font-size: 20px;
+}
+.question-field textarea{
+    margin: 20px;
+    font-size: 20px;
+}
+.question-field a{
+    background-color: #1fde82;
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.question-field a:hover{
+    background-color: gray;
+    transition:.3s;
+}
+.subscribe-more{
+    width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.subscribe-more h2{
+    width: 600px;
+    display: inline-block;
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+.subscribe-more input{
+    font-size: 25px;
+    padding: 2px;
+    vertical-align: bottom;
+}
+.suba a{
+    display: inline-block;
+    background-color: #1fde82;
+    border: 1px solid #1fde82;
+    color: white;
+    border-radius: 5px;
+    padding: 9px;
+    margin-left: -12px;
+}
+.suba a:hover{
+    background-color: gray;
+    transition:.3s;
+    border: 1px solid #eeee;
+}
+.foot{
+    width: 1200px;
+    margin: 100px auto;
+    display: flex;
+}
+.foot-card{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.foot-card-text{
+    flex-direction: row;
+    background-color: aqua;
+}
+.foot-card a{
+    margin: 10px 0;
+}
+.foot-card a p:first-child{
+    color: #1fde82;
+}
+.foot-card h2{
+    margin-bottom: 40px;
+}
+.foot-card a:hover{
+    color: #1fde82;
+    transition: .3s;
+}
