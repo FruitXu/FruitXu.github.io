@@ -138,7 +138,8 @@
 
         guess_btn.addEventListener('click', () => {
             if (numInput.value == ans) {
-                alert('答對囉');
+                alert(`恭喜答對~答案是${ans}`);
+                window.location.reload();
                 // window.location.reload();
                 // let showwin = document.createElement('p');
                 // showwin.innerText = '恭喜你答對了'
