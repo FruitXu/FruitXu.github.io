@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .guess-num * {
+            width: 100%;
+        }
+
+        .guess-num {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 60%;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        #input {
+            margin-bottom: 10px;
+            height: 20px;
+            font-size: 18px;
+        }
+        
+        .guess_text {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        .num-btn {
+            margin-bottom: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .num-btn button {
+            width: 30%;
+            margin-bottom: 5px;
+        }
+        #clear {
+            margin-bottom: 5px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            width: 30%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="guess-num">
+        <h1>猜數字遊戲</h1>
+        <p class="guess_text" id="guessnum">請輸入1~100的數字</p>
+        <input type="text" id="input">
+        <div class="num-btn">
+            <button id="num-one">1</button>
+            <button id="num-two">2</button>
+            <button id="num-three">3</button>
+            <button id="num-four">4</button>
+            <button id="num-five">5</button>
+            <button id="num-six">6</button>
+            <button id="num-seven">7</button>
+            <button id="num-eight">8</button>
+            <button id="num-nine">9</button>
+            <button id="num-zero">0</button>
+        </div>
+        <button id="clear">清除</button>
+        <div class="btn-group">
+            <button class="btn">猜</button>
+            <button class="btn">重新開始</button>
+            <button class="btn">看答案</button>
+        </div>
+    </div>
+
+    <script>
+        10
+        const numInput = document.getElementById('input');
+        const guess_num = document.getElementById('guessnum')
+        const guess_btn = document.querySelector('.btn-group :nth-child(1)');
+        const reset_btn = document.querySelector('.btn-group :nth-child(2)');
+        const showans_btn = document.querySelector('.btn-group :nth-child(3)');
+        //數字區
+        const num_one = document.getElementById('num-one');
+        const num_two = document.getElementById('num-two');
+        const num_three = document.getElementById('num-three');
+        const num_four = document.getElementById('num-four');
+        const num_five = document.getElementById('num-five');
+        const num_six = document.getElementById('num-six');
+        const num_seven = document.getElementById('num-seven');
+        const num_eight = document.getElementById('num-eight');
+        const num_nine = document.getElementById('num-nine');
+        const num_zero = document.getElementById('num-zero');
+
+        num_one.addEventListener('click', () => { numInput.value += 1; })
+        num_two.addEventListener('click', () => { numInput.value += 2; })
+        num_three.addEventListener('click', () => { numInput.value += 3; })
+        num_four.addEventListener('click', () => { numInput.value += 4; })
+        num_five.addEventListener('click', () => { numInput.value += 5; })
+        num_six.addEventListener('click', () => { numInput.value += 6; })
+        num_seven.addEventListener('click', () => { numInput.value += 7; })
+        num_eight.addEventListener('click', () => { numInput.value += 8; })
+        num_nine.addEventListener('click', () => { numInput.value += 9; })
+        num_zero.addEventListener('click', () => { numInput.value += 0; })
+
+        const btn_clear = document.getElementById('clear');
+        btn_clear.addEventListener('click',()=>{numInput.value=''})
+        //猜數字區
+
+        let max_num = 100;
+        let min_num = 1;
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        const ans = getRandomInt(1, 100);
+
+
+        guess_btn.addEventListener('click', () => {
+            if (numInput.value == ans) {
+                alert('答對囉');
+                // window.location.reload();
+                // let showwin = document.createElement('p');
+                // showwin.innerText = '恭喜你答對了'
+                // document.body.append(showwin);
+            }
+            else if (numInput.value > ans && numInput.value < max_num) {
+                alert('小一點');
+                max_num = numInput.value;
+                guess_num.innerText = `請輸入${min_num}~${max_num}的數字`;
+                numInput.value = '';
+            }
+            else if (numInput.value < ans && numInput.value > min_num) {
+                alert('大一點');
+                min_num = numInput.value;
+                guess_num.innerText = `請輸入${min_num}~${max_num}的數字`;
+                numInput.value = '';
+            }
+            else {
+                alert('請輸入範圍內的數字')
+            }
+        })
+
+        showans_btn.addEventListener('click', function () {
+            alert(`答案是${ans}`);
+        })
+        reset_btn.addEventListener('click', function () {
+            window.location.reload();
+        })
+    </script>
+</body>
+
+</html>
