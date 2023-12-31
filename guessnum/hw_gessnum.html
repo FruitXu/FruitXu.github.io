@@ -76,8 +76,6 @@
             return Math.floor(Math.random() * (max - min) + min);
         }
         const ans = getRandomInt(1, 100);
-
-
         guess_btn.addEventListener('click', () => {
             if (numInput.value == ans) {
                 alert(`恭喜答對~答案是${ans}`);
