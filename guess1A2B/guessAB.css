@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button:active {
+    transform: translateY(-1px) scale(.98);
+}
+
+section {
+    width: 60%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#card-p2 {
+    background-color: red;
+    color: white;
+    margin-right: 5px;
+}
+
+.btn-group {
+    width: 100%;
+}

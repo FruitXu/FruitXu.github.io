@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<link rel="stylesheet" href="guessAB.css">
+
+<body>
+
+    <section>
+        <h1>猜數字遊戲(幾A幾B)</h1>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" id="star_btn" class="btn btn-outline-primary">開始</button>
+            <button type="button" id="reset_btn" class="btn btn-outline-primary">重新開始</button>
+            <button type="button" id="show_ans" class="btn btn-outline-primary">看答案</button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p id="card-p2"></p>
+                <p id="card-p"></p>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">答案區</span>
+            <input id="input" type="text" class="form-control" placeholder="請輸入4位數字" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <button id="guess" class="btn btn-outline-secondary" type="button" id="button-addon2">猜!</button>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        //-------------上層按鈕區--------------------------
+        let star_btn = document.getElementById('star_btn');
+        let reset_btn = document.getElementById('reset_btn');
+        let show_ans = document.getElementById('show_ans');
+        window.onload = function () {
+            reset_btn.disabled = true;
+            show_ans.disabled = true;
+            btn_guess.disabled = true;
+        }
+
+        //生產答案
+        const ansArray = [];
+        let ans;
+        //-------------生產4位亂數--------------------------
+        star_btn.addEventListener('click', getRandomAns);
+        function getRandomAns() {
+            reset_btn.disabled = false;
+            show_ans.disabled = false;
+            btn_guess.disabled = false;
+            for (i = 0; i < 4; i++) {
+                ansArray[i] = getRandomInt(1, 9);
+                for (j = 0; j < i; j++) {
+                    while (ansArray[i] == ansArray[j]) {
+                        j = 0;
+                        ansArray[i] = getRandomInt(1, 9);
+                    }
+                }
+            }
+            ans = ansArray.join('');
+        };
+        reset_btn.addEventListener('click', function () {
+            window.location.reload();
+            alert('已刷新請按開始~')
+        })
+        show_ans.addEventListener('click', function () { alert(`答案是${ans}`) })
+        //-------------中層記錄區---------------------------
+        let card_body = document.querySelector('.card-body');
+
+        //-------------程式邏輯區---------------------------
+        let a = 0;
+        let b = 0;
+        //-------------猜題---------------------------------
+
+        let btn_guess = document.getElementById('guess');
+        btn_guess.addEventListener('click', guessNum);
+        function guessNum() {
+            let card_span = document.getElementById('card-span');
+            let card_p = document.getElementById('card-p');
+            let inputValue = document.getElementById('input').value;
+            let guessArray = inputValue.split('');
+            let ansSplit = ans.split('');
+            if (input.value.length !== 4) {
+                alert('請輸入4位數字')
+            }
+            else {
+                if (inputValue !== ans) {
+                    for (i = 0; i < ansSplit.length; i++) {
+                        if (guessArray[i] === ansSplit[i]) { a++; }
+                        else {
+                            for (j = 0; j < ansSplit.length; j++) {
+                                if (guessArray[i] === ansSplit[j]) { b++; }
+                            }
+                        }
+                    }
+                }
+                if (inputValue === ans) {
+                    for (i = 0; i < ansSplit.length; i++) {
+                        if (guessArray[i] === ansSplit[i]) { a++; };
+                    }
+                    alert('恭喜答對囉')
+                }
+                input.value = ''
+                let card = document.querySelector('.card');
+                const div = document.createElement('div');
+                div.setAttribute('class', 'card-body');
+                const span = document.createElement('span');
+                const p2 = document.createElement('p');
+                p2.setAttribute('id', 'card-p2');
+                p2.innerText = `${a}A${b}B`
+                const p = document.createElement('p');
+                p.setAttribute('id', 'card-p');
+                p.innerText = `${inputValue}`
+                div.append(p2, p);
+                card.append(div);
+                a = 0;
+                b = 0;
+            }
+
+        };
+
+        // let cardBody = document.querySelector('.card-body');
+        // const span = document.createElement('span');
+        // span.setAttribute('id', 'card-span');
+        // span.innerText = `${a}A${b}B`;
+        // const p = document.createElement('p');
+        // p.setAttribute('id', 'card-p');
+        // p.innerText = ans;
+        // cardBody.append(span, p)
+    </script>
+</body>
+
+</html>
