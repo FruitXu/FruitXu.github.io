@@ -61,6 +61,7 @@
         //-------------生產4位亂數--------------------------
         star_btn.addEventListener('click', getRandomAns);
         function getRandomAns() {
+            star_btn.disabled = true;
             reset_btn.disabled = false;
             show_ans.disabled = false;
             btn_guess.disabled = false;
@@ -114,7 +115,8 @@
                     for (i = 0; i < ansSplit.length; i++) {
                         if (guessArray[i] === ansSplit[i]) { a++; };
                     }
-                    alert('恭喜答對囉')
+                    alert('恭喜答對囉');
+                    btn_guess.disabled = true;
                 }
                 input.value = ''
                 let card = document.querySelector('.card');
