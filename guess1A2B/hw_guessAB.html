@@ -110,27 +110,55 @@
                             }
                         }
                     }
+                    input.value = ''
+                    let card = document.querySelector('.card');
+                    const div = document.createElement('div');
+                    div.setAttribute('class', 'card-body');
+                    const span = document.createElement('span');
+                    const p2 = document.createElement('p');
+                    p2.setAttribute('id', 'card-p2');
+                    p2.innerText = `${a}A${b}B`
+                    p2.style.backgroundColor = 'red';
+                    const p = document.createElement('p');
+                    p.setAttribute('id', 'card-p');
+                    p.innerText = `${inputValue}`
+                    div.append(p2, p);
+                    card.append(div);
                 }
                 if (inputValue === ans) {
                     for (i = 0; i < ansSplit.length; i++) {
                         if (guessArray[i] === ansSplit[i]) { a++; };
                     }
                     alert('恭喜答對囉');
+                    input.value = ''
+                    let card = document.querySelector('.card');
+                    const div = document.createElement('div');
+                    div.setAttribute('class', 'card-body');
+                    const span = document.createElement('span');
+                    const p2 = document.createElement('p');
+                    p2.setAttribute('id', 'card-p2');
+                    p2.innerText = `${a}A${b}B`
+                    p2.style.backgroundColor = 'green';
+                    const p = document.createElement('p');
+                    p.setAttribute('id', 'card-p');
+                    p.innerText = `${inputValue}`
+                    div.append(p2, p);
+                    card.append(div);
                     btn_guess.disabled = true;
                 }
-                input.value = ''
-                let card = document.querySelector('.card');
-                const div = document.createElement('div');
-                div.setAttribute('class', 'card-body');
-                const span = document.createElement('span');
-                const p2 = document.createElement('p');
-                p2.setAttribute('id', 'card-p2');
-                p2.innerText = `${a}A${b}B`
-                const p = document.createElement('p');
-                p.setAttribute('id', 'card-p');
-                p.innerText = `${inputValue}`
-                div.append(p2, p);
-                card.append(div);
+                // input.value = ''
+                // let card = document.querySelector('.card');
+                // const div = document.createElement('div');
+                // div.setAttribute('class', 'card-body');
+                // const span = document.createElement('span');
+                // const p2 = document.createElement('p');
+                // p2.setAttribute('id', 'card-p2');
+                // p2.innerText = `${a}A${b}B`
+                // const p = document.createElement('p');
+                // p.setAttribute('id', 'card-p');
+                // p.innerText = `${inputValue}`
+                // div.append(p2, p);
+                // card.append(div);
                 a = 0;
                 b = 0;
             }
