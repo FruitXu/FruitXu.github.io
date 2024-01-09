@@ -66,11 +66,11 @@
             show_ans.disabled = false;
             btn_guess.disabled = false;
             for (i = 0; i < 4; i++) {
-                ansArray[i] = getRandomInt(1, 9);
+                ansArray[i] = getRandomInt(0, 9);
                 for (j = 0; j < i; j++) {
                     while (ansArray[i] == ansArray[j]) {
                         j = 0;
-                        ansArray[i] = getRandomInt(1, 9);
+                        ansArray[i] = getRandomInt(0, 9);
                     }
                 }
             }
