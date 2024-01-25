@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        section {
+            width: 60%;
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>待辦清單</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="todoInput" placeholder="to do...."
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2">新增</button>
+        </div>
+        <!-- <div class="input-group mb-3">
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                    aria-label="Checkbox for following text input">
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with checkbox" value="123">
+            <button type="button" class="btn btn-danger">編輯</button>
+            <button type="button" class="btn btn-warning">刪除</button>
+        </div> -->
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <script>
+        window.onload = function () {
+            const buttonAddon = document.querySelector("#button-addon2");
+            const todoInput = document.querySelector("#todoInput");
+            const section = document.querySelector("section");
+
+            buttonAddon.addEventListener("click", updateList);
+
+            let getData = localStorage.getItem("tasks");
+            let taskList;
+            if (getData) {
+                taskList = JSON.parse(getData);
+            } else {
+                taskList = [];
+            }
+            //存進localStorage
+            function updateList() {
+                const taskText = todoInput.value.trim();
+                if (taskText !== "") {
+                    const task = {
+                        text: taskText,
+                        // completed 屬性，為了讓Check 預設 false
+                        completed: false,
+                    };
+                    taskList.push(task);
+                    localStorage.setItem("tasks", JSON.stringify(taskList));
+
+                    renderTask(task);
+                    todoInput.value = '';
+                } else {
+                    alert('請先輸入事項')
+                }
+            }
+
+            //渲染
+            function renderTask(task) {
+                const inputGroup = document.createElement("div");
+                inputGroup.setAttribute("class", "input-group mb-3");
+
+                const inputGroupText = document.createElement("div");
+                inputGroupText.setAttribute("class", "input-group-text");
+
+                const formCheckInput = document.createElement("input");
+                formCheckInput.setAttribute("class", "form-check-input mt-0");
+                formCheckInput.setAttribute("type", "checkbox");
+                formCheckInput.setAttribute("aria-label", "Checkbox for following text input");
+                // 控制checked 是否打勾 true = 打勾
+                formCheckInput.checked = task.completed;
+
+                formCheckInput.addEventListener("change", () => {
+                    task.completed = formCheckInput.checked;
+                    localStorage.setItem("tasks", JSON.stringify(taskList));
+                });
+
+                const formControl = document.createElement("input");
+                formControl.value = task.text;
+                formControl.setAttribute("class", "form-control");
+                formControl.setAttribute("aria-label", "Text input with checkbox");
+                formControl.disabled = true;
+
+                const btnDanger = document.createElement("button");
+                btnDanger.setAttribute("class", "btn btn-danger");
+                btnDanger.innerText = "編輯";
+
+                const btnWarning = document.createElement("button");
+                btnWarning.setAttribute("class", "btn btn-warning");
+                btnWarning.innerText = "刪除";
+
+                inputGroupText.append(formCheckInput);
+                inputGroup.append(inputGroupText);
+                inputGroup.append(formControl);
+                inputGroup.append(btnDanger);
+                inputGroup.append(btnWarning);
+                section.append(inputGroup);
+
+                btnDanger.addEventListener("click", () => editTask(formControl, task, btnDanger));
+                btnWarning.addEventListener("click", () => deleteTask(inputGroup, task));
+            }
+
+            function editTask(formControl, task, btnDanger) {
+                //讓formControl切換相反狀態
+                formControl.disabled = !formControl.disabled;
+                if (!formControl.disabled) {
+                    formControl.addEventListener("change", () => {
+                        task.text = formControl.value;
+                        localStorage.setItem("tasks", JSON.stringify(taskList));
+                    });
+                    btnDanger.innerText = "確定";
+                    btnDanger.setAttribute("class", "btn btn-success");
+                } else {
+                    btnDanger.innerText = "編輯";
+                    btnDanger.setAttribute("class", "btn btn-danger");
+                }
+            }
+
+            function deleteTask(inputGroup, task) {
+                const index = taskList.indexOf(task);
+                if (index !== -1) {
+                    //splice 從第index筆刪除1筆資料
+                    taskList.splice(index, 1);
+                    localStorage.setItem("tasks", JSON.stringify(taskList));
+                    inputGroup.remove();
+                }
+            }
+
+
+            taskList.forEach((item, idx) => {
+                renderTask(item);
+            });
+        };
+
+    </script>
+</body>
+
+</html>
