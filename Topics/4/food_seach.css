@@ -1,0 +1,36 @@
+.food_seachfooter {
+    background-position: center;
+    transition-property: opacity;
+    color: black;
+    position: relative;
+    color: black;
+    padding: 0 20%;
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.food_seachfooter::after {
+    content: "";
+    position: absoulte;
+    background: url("./pic/web2.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+.buffect_a_hover{
+    color: black;
+    text-decoration: none;
+}
+.buffect_a_hover:hover{
+    color: orange;
+}
